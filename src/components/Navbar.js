@@ -20,10 +20,8 @@ class Navbar extends Component {
                     </div>
 
                     <ul className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}>
-                        <li>
-                            <Link to="/">Home</Link>
-                            <Link to="/rooms">Rooms</Link>
-                        </li>
+                        <li> <Link to="/">Home</Link> </li>
+                        <li><Link to="/rooms">Rooms</Link></li>
                     </ul>
                 </div>
             </nav>
