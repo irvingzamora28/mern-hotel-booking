@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import items from "./data"
 
 const RoomContext = React.createContext()
-{/* <RoomContext.Provider value={} */}
+{/* <RoomContext.Provider value={} */ }
 
 class RoomProvider extends Component {
-    state ={
-        rooms:[],
+    state = {
+        rooms: [],
         sortedRooms: [],
         featuredRooms: [],
         loading: true
@@ -27,15 +27,21 @@ class RoomProvider extends Component {
         let tempItems = items.map((item) => {
             let id = item.sys.id
             let images = item.fields.images.map(image => image.fields.file.url)
-            let room = {...item.fields, images, id}
+            let room = { ...item.fields, images, id }
             return room
         })
 
         return tempItems
     }
+
+    getRoom = (slug) => {
+        let tempRooms = [...this.state.rooms]
+        const room = tempRooms.find((room) => room.slug === slug)
+        return room
+    }
     render() {
         return (
-            <RoomContext.Provider value={{...this.state}}>
+            <RoomContext.Provider value={{ ...this.state, getRoom: this.getRoom }}>
                 {this.props.children}
             </RoomContext.Provider>
         )
@@ -44,4 +50,4 @@ class RoomProvider extends Component {
 
 const RoomConsumer = RoomContext.Consumer
 
-export {RoomProvider, RoomConsumer, RoomContext}
+export { RoomProvider, RoomConsumer, RoomContext }

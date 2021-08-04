@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Error from './pages/Error';
 import Home from './pages/Home';
-import Room from './pages/Room';
+import Room from './pages/SingleRoom';
 import Rooms from './pages/Rooms';
 
 function App() {
