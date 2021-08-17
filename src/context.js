@@ -54,9 +54,7 @@ export const withRoomConsumer = (Component) => {
     return function ConsumerWrapper(props) {
         return <RoomConsumer>
             {
-                (value) => {
-                    <Component {...props} context={value} />
-                }
+                (value) => <Component {...props} context={value} />
             }
         </RoomConsumer>
     }
